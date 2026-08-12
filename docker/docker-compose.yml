@@ -1,0 +1,58 @@
+version: "3.8"
+
+# Local development stack for the Temple ERP platform: MySQL, the Laravel
+# API, and the React web-admin console. Run from the repo root with:
+#   docker compose -f docker/docker-compose.yml up --build
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: temple_erp
+      MYSQL_USER: temple
+      MYSQL_PASSWORD: temple
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - temple_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/php/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      APP_ENV: local
+      APP_KEY: ${APP_KEY:-}
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: temple_erp
+      DB_USERNAME: temple
+      DB_PASSWORD: temple
+    ports:
+      - "8000:8000"
+
+  web-admin:
+    build:
+      context: ..
+      dockerfile: docker/web-admin/Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000/api/v1
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  temple_mysql_data:
