@@ -1,0 +1,249 @@
+temple-erp/
+├── backend/
+│   └── laravel/
+│       ├── app/
+│       │   ├── Console/
+│       │   │   ├── Commands/
+│       │   │   │   ├── Accounting/
+│       │   │   │   │   ├── CloseMonthlyBooks.php
+│       │   │   │   │   ├── GenerateTrialBalance.php
+│       │   │   │   │   └── ReconcileAccounts.php
+│       │   │   │   ├── Donation/
+│       │   │   │   │   ├── ProcessRecurringDonations.php
+│       │   │   │   │   ├── SendDonationReminders.php
+│       │   │   │   │   └── GenerateDonationReports.php
+│       │   │   │   ├── Seva/
+│       │   │   │   │   ├── ProcessSevaBookings.php
+│       │   │   │   │   ├── ReleaseExpiredSlots.php
+│       │   │   │   │   └── GenerateSevaReports.php
+│       │   │   │   ├── Crowd/
+│       │   │   │   │   ├── ProcessCrowdAnalytics.php
+│       │   │   │   │   ├── UpdateQueuePredictions.php
+│       │   │   │   │   └── GenerateHeatmaps.php
+│       │   │   │   ├── Notification/
+│       │   │   │   │   ├── SendScheduledNotifications.php
+│       │   │   │   │   └── RetryFailedNotifications.php
+│       │   │   │   └── System/
+│       │   │   │       ├── BackupDatabase.php
+│       │   │   │       ├── ClearCache.php
+│       │   │   │       └── CheckSystemHealth.php
+│       │   │   └── Kernel.php
+│       │   ├── Events/
+│       │   │   ├── Donation/
+│       │   │   │   ├── DonationReceived.php
+│       │   │   │   ├── DigitalGoldDonated.php
+│       │   │   │   └── ReceiptGenerated.php
+│       │   │   ├── Seva/
+│       │   │   │   ├── SevaBooked.php
+│       │   │   │   ├── SevaCompleted.php
+│       │   │   │   └── SevaCancelled.php
+│       │   │   ├── Crowd/
+│       │   │   │   ├── CrowdSurgeDetected.php
+│       │   │   │   └── QueueOptimized.php
+│       │   │   └── System/
+│       │   │       └── SystemInitialized.php
+│       │   ├── Exceptions/
+│       │   │   ├── Booking/
+│       │   │   │   ├── SlotUnavailableException.php
+│       │   │   │   └── BookingConflictException.php
+│       │   │   ├── Donation/
+│       │   │   │   └── DonationProcessingException.php
+│       │   │   ├── Crowd/
+│       │   │   │   └── CrowdCapacityExceededException.php
+│       │   │   └── Handler.php
+│       │   ├── Http/
+│       │   │   ├── Controllers/
+│       │   │   │   ├── API/
+│       │   │   │   │   └── V1/
+│       │   │   │   │       ├── Auth/
+│       │   │   │   │       ├── Admin/
+│       │   │   │   │       ├── Temple/
+│       │   │   │   │       │   ├── TempleController.php
+│       │   │   │   │       │   ├── DeityController.php
+│       │   │   │   │       │   └── FestivalController.php
+│       │   │   │   │       ├── Devotee/
+│       │   │   │   │       │   ├── DevoteeController.php
+│       │   │   │   │       │   └── DocumentController.php
+│       │   │   │   │       ├── Seva/
+│       │   │   │   │       │   ├── SevaController.php
+│       │   │   │   │       │   ├── SlotController.php
+│       │   │   │   │       │   └── BookingController.php
+│       │   │   │   │       ├── Donation/
+│       │   │   │   │       │   ├── DonationController.php
+│       │   │   │   │       │   ├── EHundiController.php
+│       │   │   │   │       │   ├── DigitalGoldController.php
+│       │   │   │   │       │   └── ReceiptController.php
+│       │   │   │   │       ├── Crowd/
+│       │   │   │   │       │   ├── QueueController.php
+│       │   │   │   │       │   ├── AnalyticsController.php
+│       │   │   │   │       │   └── CameraController.php
+│       │   │   │   │       ├── Property/
+│       │   │   │   │       │   ├── PropertyController.php
+│       │   │   │   │       │   ├── LandRecordController.php
+│       │   │   │   │       │   └── TenantController.php
+│       │   │   │   │       ├── Inventory/
+│       │   │   │   │       │   ├── InventoryController.php
+│       │   │   │   │       │   └── StockMovementController.php
+│       │   │   │   │       ├── Staff/
+│       │   │   │   │       │   ├── StaffController.php
+│       │   │   │   │       │   └── VolunteerController.php
+│       │   │   │   │       ├── Financial/
+│       │   │   │   │       │   ├── AccountingController.php
+│       │   │   │   │       │   ├── VoucherController.php
+│       │   │   │   │       │   └── ReportController.php
+│       │   │   │   │       └── Notification/
+│       │   │   │   │           ├── NotificationController.php
+│       │   │   │   │           └── TemplateController.php
+│       │   │   │   ├── Admin/
+│       │   │   │   │   ├── DashboardController.php
+│       │   │   │   │   ├── TempleController.php
+│       │   │   │   │   ├── DevoteeController.php
+│       │   │   │   │   ├── SevaController.php
+│       │   │   │   │   ├── DonationController.php
+│       │   │   │   │   ├── ReportController.php
+│       │   │   │   │   └── SystemController.php
+│       │   │   │   ├── DevoteePortal/
+│       │   │   │   │   ├── DashboardController.php
+│       │   │   │   │   ├── ProfileController.php
+│       │   │   │   │   ├── SevaController.php
+│       │   │   │   │   ├── DonationController.php
+│       │   │   │   │   └── ReceiptController.php
+│       │   │   │   └── Web/
+│       │   │   │       ├── HomeController.php
+│       │   │   │       ├── TempleController.php
+│       │   │   │       └── PageController.php
+│       │   │   ├── Middleware/
+│       │   │   │   ├── Authenticate.php
+│       │   │   │   ├── CompanyScope.php
+│       │   │   │   ├── SubscriptionCheck.php
+│       │   │   │   ├── RolePermission.php
+│       │   │   │   ├── DevoteeAccess.php
+│       │   │   │   ├── CORS.php
+│       │   │   │   └── RateLimiter.php
+│       │   │   ├── Requests/
+│       │   │   │   ├── API/
+│       │   │   │   │   └── V1/
+│       │   │   │   │       ├── Temple/
+│       │   │   │   │       ├── Devotee/
+│       │   │   │   │       ├── Seva/
+│       │   │   │   │       ├── Donation/
+│       │   │   │   │       └── Crowd/
+│       │   │   │   └── Admin/
+│       │   │   └── Resources/
+│       │   │       └── API/
+│       │   │           └── V1/
+│       │   │               ├── Temple/
+│       │   │               ├── Devotee/
+│       │   │               ├── Seva/
+│       │   │               └── Donation/
+│       │   ├── Jobs/
+│       │   │   ├── Donation/
+│       │   │   ├── Seva/
+│       │   │   ├── Notification/
+│       │   │   └── System/
+│       │   ├── Mail/
+│       │   │   ├── Devotee/
+│       │   │   ├── Donation/
+│       │   │   └── Seva/
+│       │   ├── Models/
+│       │   │   ├── Accounting/
+│       │   │   │   ├── AccountGBS.php
+│       │   │   │   ├── AccountG.php
+│       │   │   │   ├── AccountM.php
+│       │   │   │   ├── Daybook.php
+│       │   │   │   ├── Voucher.php
+│       │   │   │   └── Receipt.php
+│       │   │   ├── Temple/
+│       │   │   │   ├── Temple.php
+│       │   │   │   ├── Deity.php
+│       │   │   │   └── Festival.php
+│       │   │   ├── Devotee/
+│       │   │   │   ├── Devotee.php
+│       │   │   │   ├── DevoteeFamily.php
+│       │   │   │   └── DevoteeDocument.php
+│       │   │   ├── Seva/
+│       │   │   │   ├── SevaService.php
+│       │   │   │   ├── SevaSlot.php
+│       │   │   │   └── SevaBooking.php
+│       │   │   ├── Donation/
+│       │   │   │   ├── Donation.php
+│       │   │   │   ├── Donor.php
+│       │   │   │   ├── DigitalGold.php
+│       │   │   │   └── EHundi.php
+│       │   │   ├── Crowd/
+│       │   │   │   ├── DarshanQueue.php
+│       │   │   │   ├── QueueEntry.php
+│       │   │   │   ├── CrowdAnalytics.php
+│       │   │   │   └── CCTV.php
+│       │   │   ├── Property/
+│       │   │   │   ├── Property.php
+│       │   │   │   ├── LandRecord.php
+│       │   │   │   └── Tenant.php
+│       │   │   ├── Inventory/
+│       │   │   │   ├── InventoryItem.php
+│       │   │   │   └── StockMovement.php
+│       │   │   ├── Staff/
+│       │   │   │   ├── Staff.php
+│       │   │   │   └── Volunteer.php
+│       │   │   └── System/
+│       │   │       ├── Company.php
+│       │   │       ├── User.php
+│       │   │       ├── Role.php
+│       │   │       └── Permission.php
+│       │   ├── Observers/
+│       │   ├── Policies/
+│       │   ├── Providers/
+│       │   ├── Repositories/
+│       │   ├── Services/
+│       │   │   ├── Accounting/
+│       │   │   ├── Temple/
+│       │   │   ├── Devotee/
+│       │   │   ├── Seva/
+│       │   │   ├── Donation/
+│       │   │   ├── Crowd/
+│       │   │   │   ├── QueueService.php
+│       │   │   │   ├── AnalyticsService.php
+│       │   │   │   └── AICrowdService.php
+│       │   │   ├── Notification/
+│       │   │   └── Integration/
+│       │   │       ├── PaymentGateway/
+│       │   │       ├── DigitalGold/
+│       │   │       └── AI/
+│       │   ├── Helpers/
+│       │   └── Traits/
+│       ├── config/
+│       ├── database/
+│       │   ├── migrations/
+│       │   ├── seeders/
+│       │   └── factories/
+│       ├── public/
+│       ├── resources/
+│       │   └── views/
+│       │       ├── admin/
+│       │       │   ├── dashboard/
+│       │       │   ├── temples/
+│       │       │   ├── devotees/
+│       │       │   ├── seva/
+│       │       │   ├── donations/
+│       │       │   ├── crowd/
+│       │       │   ├── property/
+│       │       │   ├── financial/
+│       │       │   └── reports/
+│       │       ├── devotee/
+│       │       │   ├── dashboard/
+│       │       │   ├── profile/
+│       │       │   ├── seva/
+│       │       │   └── donations/
+│       │       └── web/
+│       ├── routes/
+│       │   ├── api.php
+│       │   ├── web.php
+│       │   ├── admin.php
+│       │   └── devotee.php
+│       └── tests/
+├── frontend/
+│   ├── web-admin/
+│   └── mobile-app/
+├── docker/
+├── scripts/
+└── docs/

@@ -1,0 +1,31 @@
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              Presentation Layer                                │
+├─────────────────────┬─────────────────────┬───────────────────────────────────┤
+│  Web Admin          │  Devotee Portal     │   Mobile App                     │
+│  (Laravel/React)    │  (Laravel/React)    │   (Flutter)                      │
+├─────────────────────┴─────────────────────┴───────────────────────────────────┤
+│                              Application Layer                                │
+├─────────────────────┬─────────────────────┬───────────────────────────────────┤
+│  Core Modules       │  Admin Modules      │   SaaS Core                      │
+│  - Temple Profiles  │  - User Mgmt        │   - Multi-Tenant                │
+│  - Deity Management │  - Reports          │   - Subscription                │
+│  - Festivals        │  - Configuration    │   - RBAC                       │
+│  - Notifications    │  - Audit Logs       │   - API Gateway                │
+├─────────────────────┼─────────────────────┼───────────────────────────────────┤
+│  Devotee Module     │  Financial Module   │   Accounting Module             │
+│  - Devotee Portal   │  - Donations        │   - Double-Entry Ledger         │
+│  - Profile Mgmt     │  - E-Hundi          │   - Receipt Generation          │
+│  - Family Records   │  - Digital Gold     │   - GST/Tax Compliance         │
+│  - Pooja Bookings   │  - Payment Gateway  │   - Credit/Debit Notes         │
+├─────────────────────┼─────────────────────┼───────────────────────────────────┤
+│  Ritual Module      │  Crowd Module       │   Property Module               │
+│  - Seva Booking     │  - Queue Mgmt       │   - Land Records               │
+│  - Pooja Services   │  - AI Analytics     │   - Building Mgmt              │
+│  - Prasad Booking   │  - Camera Int       │   - Tenant Mgmt               │
+│  - VIP Darshan      │  - Heatmaps         │   - Rent Collection            │
+├─────────────────────┴─────────────────────┴───────────────────────────────────┤
+│                              Data Layer                                      │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                    MySQL Database (Multi-Tenant)                             │
+│  - Temple DB1    - Temple DB2    - Temple DB3                               │
+└───────────────────────────────────────────────────────────────────────────────┘
